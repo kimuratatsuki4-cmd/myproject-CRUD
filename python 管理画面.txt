@@ -1,0 +1,4 @@
+python 管理画面
+ユーザー名 (leave blank to use 'tatsuki'): admin
+メールアドレス: mail@example.com
+Password: admin

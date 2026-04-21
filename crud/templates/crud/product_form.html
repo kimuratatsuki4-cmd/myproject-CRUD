@@ -1,0 +1,27 @@
+<!-- template名はデフォルトでModel名_list.html -->
+<!-- Model名「Product」クラスを利用する場合「product_list.html」となる -->
+
+<!-- CreateViewクラスを継承したViewクラスを定義することで、新規作成フォームを効率的に作成 -->
+{% extends "base.html" %}
+{% load bootstrap %}
+
+{% block title %}新規作成{% endblock %}
+{% block content %}
+<h1>新規作成</h1>
+<form method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <!-- formに対してbootstrapを適用 -->
+    {{form|bootstrap}}
+    <br>
+    <a href="{% url 'list' %}">戻る</a>
+    <input type="submit" class="btn btn-primary" value="登録">
+</form>
+
+{% endblock %}
+
+<!--
+4. {% url 'list' %}
+逆引きURLという機能です。
+urls.py で name='list' と名付けられたページへのリンクを自動的に作成します。
+URLを直接 /list/ と書くよりも、後でURLを変更したくなった時に修正が楽になります。 
+-->
